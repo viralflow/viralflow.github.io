@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/viralflow_logo.png" class="img-home" alt="">
+          <img src="assets/img/viralflow_logo.png" class="img-home" alt="" style="object-fit:contain;width: 400px;height: 400px;">
         </div>
       </div>
     </div>
@@ -101,6 +101,7 @@
               <br>
               A publicação da primeira versão do ViralFlow pode ser conferida  <a href="https://www.mdpi.com/1999-4915/14/2/217" target="_blank">neste link</a>. A publicação da atualização, que engloba as funções descritas nesta documentação, está em preparo.
             </p>
+            <img src="assets/img/flowchart_pt-br.png" class="img-home align-items-center" alt="">
           </div>
         </div>
 
@@ -117,20 +118,31 @@
               Para instalação e execução do ViralFlow, você precisará de pelo menos 4,4Gb de armazenamento de disco, para a criação dos contêineres, e de três dependências:
             </p>
             <ul>
-              <li>Python 3</li>
+              <li>pip</li>
               <li>Git</li>
-              <li>Setup Tools</li>
+              <li>uidmap</li>
             </ul>
             <p>
-              A lista com as versões de cada ferramenta utilizadas no ViralFlow pode ser conferida  <a href="https://github.com/dezordi/ViralFlow/tree/vfnext/versions" target="_blank">neste link</a>. Além disso, o ViralFlow utiliza a ferramenta de containerizacao  Singularity e da linguagem de workflow Nextflow. Para garantir o funcionamento correto do ViralFlow, é essencial as versões corretas do Singularity e do Nextflow, ambos podem ser instalados juntamente com o ViralFlow.
+              A lista com as versões de cada ferramenta utilizadas no ViralFlow pode ser conferida  <a href="https://github.com/dezordi/ViralFlow/tree/vfnext/versions" target="_blank">neste link</a>. Além disso,para uma instalação com um ambiente controlado, utilizamos o Conda. O ViralFlow utiliza a ferramenta de containerizacao  Singularity e da linguagem de workflow Nextflow. Para garantir o funcionamento correto do ViralFlow, é essencial as versões corretas do Singularity e do Nextflow, ambos podem ser instalados juntamente com o ViralFlow.
             </p>
             <br>
             <div class="accordion-list">
               <ul>
                 <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed"><span>01</span> Singularity v3.8
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed"><span>01</span> Conda
                     <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      Conda é um gerenciador de pacotes de código aberto. Foi desenvolvido inicialmente para gerenciar ambientes de pacotes da linguagem Python, permitindo o controle de versões.<br>
+                      <br>
+                      Para que todos os usuários utilizem o ViralFlow com as versões exatas do Singularity e do Nextflow, nós criamos um ambiente com estas versões, o que permite uma padronização nos ambientes de instalação do ViralFlow, bem como a resolução de eventuais erros.<br>
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Singularity v3.8
+                    <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                     <p>
                       Singularity é uma ferramenta que executa a virtualização no nível do sistema operacional, tarefa popularmente conhecida como conteinerização. <br>
                       <br>
@@ -141,8 +153,8 @@
                   </div>
                 </li>
                 <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Nextflow 22.04 <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Nextflow 22.04 <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                     <p>
                       Nextflow é um gerenciador de workflows de bioinformática que permite o desenvolvimento de workflows portáteis e reprodutíveis. <br>
                       <br>
@@ -165,42 +177,105 @@
         <div class="section-title">
           <h2>Como Instalar?</h2>
         </div>
-        <div class="row">
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <p>
-              Para realizar a instalação do ViralFlow, são necessários  quatro passos: Clonar o repositório (baixar/fazer o download) para sua máquina local; realizar a instalação do viralflow_dev; preparar as dependencias e  montar os containers para as análises. Este processo é realizado uma única vez com seis linhas no terminal do seu sistema operacional:
-              <br>
-              <br>
-              A instalação e uso do ViralFlow já foi testada nos sistemas:
-              <ul>
-                <li>• Ubuntu 20.04 LTS;</li>
-                <li>• Ubuntu 22.04 LTS..</li>
-              </ul>
-            </p>
+          <p>
+            Para realizar a instalação do ViralFlow, são necessários  quatro passos: Instalar as dependencies de sistema, caso você não as tenha instalado; Instalar o Conda; instalar o ViralFlow e por fim, montar os containers para as análises. Este processo é realizado uma única.
+            <br>
+            <br>
+            A instalação e uso do ViralFlow já foi testada nos sistemas:
+            <ul>
+              <li> Ubuntu 20.04 LTS;</li>
+              <li> Ubuntu 22.04 LTS..</li>
+            </ul>
+          </p>
+          <h3>Instalando as pedendências do sistema</h3>
+          <p>
+            Caso você não tenha o instalador de dependencias pip, o sistema de controle de versões git, e o pacote uidmap, você deve realizar a instalação com as seguintes linhas:
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                sudo apt update<br>
+                sudo apt upgrade<br>
+                sudo apt install git<br>
+                sudo apt install python3-pip<br>
+                sudo apt-get install uidmap<br>    
+              </p>
+            </div>
+            <br>
           </div>
-          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <div class="container-code">
-              <div class="row-code">
-                <div class="column left">
-                  <span class="dot" style="background:#ED594A;"></span>
-                  <span class="dot" style="background:#FDD800;"></span>
-                  <span class="dot" style="background:#5AC05A;"></span>
-                </div>
+          <h3>Instalando e configurando o ambiente conda</h3>
+          <p>
+            Caso você não tenha o gerenciador de ambientes conda instalado, você pode instalar e configurar com as seguintes linhas:
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
               </div>
-              <div class ="box-code">
-                <p color = "green">
-                  git clone https://github.com/dezordi/ViralFlow.git<br>
-                  cd ViralFlow/<br>
-                  git checkout vfnext<br>
-                  pip install -e .<br>
-                  viralflow_dev -setup_dependencies<br>
-                  viralflow_dev -build_containers<br>            
-                </p>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                cd $HOME<br>
+                wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"<br>
+                bash Miniconda3-py39_4.12.0-Linux-x86_64.sh -b<br>
+                $HOME/miniconda3/bin/conda init<br>
+                source $HOME/.bashrc<br>
+                conda update conda -y<br>
+              </p>
+            </div>
+          </div>
+          <br>
+          <h3>Instalando o ViralFlow</h3>
+          <p>
+            Caso você ja tenha as dependencias citadas e o conda instalado, você pode instalar o ViralFlow com 5 linhas de código:
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
               </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                git clone https://github.com/dezordi/ViralFlow.git -b vfnext <br>
+                cd ViralFlow/ <br>
+                conda env create -f envs/env.yml <br>
+                conda activate viralflow <br>
+                pip install -e . <br>
+              </p>
+            </div>
+          </div>
+          <br>
+          <h3>Construindo os containers.</h3>
+          <p>
+            Todas as etapas do ViralFlow são executadas em ambientes controlados, onde cada ferramenta terá a mesma versão independente do grupo de pesquisa que esteja usando a ferramenta. O ViralFlow possui um método próprio para realizar toda essa construção de ambientes, rodando apenas uma linha de código.
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                viralflow_dev -build_containers<br>
+              </p>
             </div>
           </div>
         </div>
-      </div>
     </section><!-- End Instalação Section -->
 
     <!-- ======= Guia Section ======= -->
@@ -622,7 +697,7 @@
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a><br>
-        Edite by <a href="https://dezordi.github.io/">Filipe Dezordi</a>
+        Edited by <a href="https://dezordi.github.io/">Filipe Dezordi</a>
       </div>
     </div>
   </footer><!-- End Footer -->
