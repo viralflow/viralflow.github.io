@@ -371,7 +371,7 @@
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                 <p align="justify">
-                  Periodically the pangolin tool updates the lineage database, as well as the usher classification phylogeny, the scorpion mutation constellations, and the pangoLearn trained model. To update the tool and its databases, just run ViralFlow with the update_pangolin command:</p><br>     
+                  Periodically the pangolin tool updates the lineage database, as well as the usher classification phylogeny, the scorpion mutation constellations, and the pangoLearn trained model. To update the tool and/or it's databases, just run ViralFlow with one of the commands:</p><br>     
             </div>
             <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="100">
               <div class="container-code">
@@ -384,7 +384,11 @@
                 </div>
                 <div class ="box-code">
                   <p color = "green" align="left">
-                    viralflow_dev -update_pangolin                                 
+                    #update the tool and databases<br>
+                    viralflow_dev -update_pangolin<br>
+                    <br>
+                    #update only the tool<br>
+                    viralflow_dev -update_pangolin_data<br>                             
                   </p>
                 </div>
               </div>
@@ -444,6 +448,16 @@
             <td>depth</td>
             <td>5</td>
             <td>Minimum coverage depth to call consensus bases. Positions with lower coverage depth will not be called and a “-” will be added to the respective consensus genomic position.</td>
+          </tr>
+          <tr>
+            <td>mapping_quality</td>
+            <td>30</td>
+            <td>Mapping quality treshold used to variant calling.</td>
+          </tr>
+          <tr>
+            <td>base_quality</td>
+            <td>30</td>
+            <td>Base quality treshold used to variant calling.</td>
           </tr>
           <tr>
             <td>minDpIntrahost</td>

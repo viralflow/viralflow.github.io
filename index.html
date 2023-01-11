@@ -369,7 +369,7 @@
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                 <p align="justify">
-                  Periodicamente a ferramenta pangolin atualiza o banco de linhagens, bem como a filogenia de classificação do usher, as constelações de mutações do scorpio, e o modelo treinado do pangoLearn. Para realizar a atualização da ferramenta e suas bases de dados, basta rodar o ViralFlow com o comando update_pangolin:</p><br>     
+                  Periodicamente a ferramenta pangolin atualiza o banco de linhagens, bem como a filogenia de classificação do usher, as constelações de mutações do scorpio, e o modelo treinado do pangoLearn. Para realizar a atualização da ferramenta e/ou de suas bases de dados, basta rodar o ViralFlow com algum dos comandos:</p><br>     
             </div>
             <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="100">
               <div class="container-code">
@@ -382,7 +382,11 @@
                 </div>
                 <div class ="box-code">
                   <p color = "green" align="left">
-                    viralflow_dev -update_pangolin                                 
+                    #atualiza a ferramenta e as bases de dados<br>
+                    viralflow_dev -update_pangolin<br>
+                    <br>
+                    #atualiza apenas as bases de dados<br>
+                    viralflow_dev -update_pangolin_data<br>                     
                   </p>
                 </div>
               </div>
@@ -442,6 +446,16 @@
             <td>depth</td>
             <td>5</td>
             <td>Profundidade mínima que uma região deve ser sequenciada para ser considerada no consenso.</td>
+          </tr>
+          <tr>
+            <td>mapping_quality</td>
+            <td>30</td>
+            <td>Limiar de qualidade de mapeamento para chamada de variantes.</td>
+          </tr>
+          <tr>
+            <td>base_quality</td>
+            <td>30</td>
+            <td>Limiar de qualidade de base para chamada de variantes.</td>
           </tr>
           <tr>
             <td>minDpIntrahost</td>
