@@ -174,7 +174,73 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Como Instalar?</h2>
+          <h2>Como Instalar (MacOS)?</h2>
+        </div>
+          <p>
+            Devido a limitações do uso do singularity no MacOS, para rodar o ViralFlow neste tipo de sistema, sugerimos a utilização de um software de virtualização Linux chamado <a href="https://github.com/lima-vm/lima">Lima</a>. Dessa forma, o usuário deve seguir três passos para instalação do Lima, e depois prosseguir com o guia de instalação do Ubuntu.</p>
+
+          <h3>Instalando o Lima</h3>
+          <p>
+            Instale o Lima utilizando o gerenciador de pacotes Homebrew:
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                brew install lima
+              </p>
+            </div>
+            <br>
+          </div>
+          <h3>Instalando a instância Ubuntu</h3>
+          <p>
+            Siga o passo a passo da instalação de uma instância Ubuntu inserindo o comando abaixo
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                limactl start
+              </p>
+            </div>
+          </div>
+          <br>
+          <h3>Inicie o Ubuntu</h3>
+          <p>
+            Quando a máquina virtual for instalada, utilize o comando abaixo para iniciar o Ubuntu e siga os passos de instalação do ViralFlow normalmente.
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                lima
+              </p>
+            </div>
+          </div>
+          <br>
+        </div>
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Como Instalar (Ubuntu)?</h2>
         </div>
           <p>
             Para realizar a instalação do ViralFlow, são necessários  quatro passos: Instalar as dependencies de sistema, caso você não as tenha instalado; Instalar o Conda; instalar o ViralFlow e por fim, montar os containers para as análises. Este processo é realizado uma única vez.
@@ -183,7 +249,7 @@
             A instalação e uso do ViralFlow já foi testada nos sistemas:
             <ul>
               <li> Ubuntu 20.04 LTS;</li>
-              <li> Ubuntu 22.04 LTS.</li>
+              <li> Ubuntu 22.04 LTS;</li>
             </ul>
           </p>
           <h3>Instalando as pedendências do sistema</h3>
@@ -256,7 +322,7 @@
             </div>
           </div>
           <br>
-          <h3>Construindo os containers.</h3>
+          <h3>Construindo os containers</h3>
           <p>
             Todas as etapas do ViralFlow são executadas em ambientes controlados, onde cada ferramenta terá a mesma versão independente do grupo de pesquisa que esteja usando a ferramenta. O ViralFlow possui um método próprio para realizar toda essa construção de ambientes, rodando apenas uma linha de código.
           </p>
@@ -275,6 +341,7 @@
             </div>
           </div>
         </div>
+        <br>
     </section><!-- End Instalação Section -->
 
     <!-- ======= Guia Section ======= -->
@@ -414,8 +481,8 @@
           </tr>
           <tr>
             <td>adaptersFile</td>
-            <td>test_files/input/ART_adapters.fa</td>
-            <td>Caminho absoluto para o arquivo fasta com os primers utilizado na PCR (opcional).</td>
+            <td>test_files/input/ART_adapters.bed</td>
+            <td>Caminho absoluto para o arquivo bed com os primers utilizado na PCR (opcional).</td>
           </tr>
           <tr>
             <td>outDir</td>

@@ -176,7 +176,72 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>How to install?</h2>
+          <h2>How to install (MacOS)?</h2>
+        </div>
+          <p>
+            Due to the limitation of using singularity on MacOS, to run ViralFlow on this type of system, we suggest using a Linux virtualization software called <a href="https://github.com/lima-vm/lima">Lima</a>. In this way, the user must follow three steps for installing Lima, and then satisfied with the Ubuntu installation guide.</p>
+          <h3>Installing Lima</h3>
+          <p>
+            Install Lima using the Homebrew package manager:
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                brew install lima
+              </p>
+            </div>
+            <br>
+          </div>
+          <h3>Installing the Ubuntu instance</h3>
+          <p>
+            Follow the step by step installation of an Ubuntu instance by entering the command below
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                limactl start
+              </p>
+            </div>
+          </div>
+          <br>
+          <h3>Start Ubuntu</h3>
+          <p>
+            When the virtual machine is installed, use the command below to start Ubuntu and follow the ViralFlow installation steps as usual.
+          </p>
+          <div class="container-code">
+            <div class="row-code">
+              <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+              </div>
+            </div>
+            <div class ="box-code">
+              <p color = "green">
+                lima
+              </p>
+            </div>
+          </div>
+          <br>
+        </div>
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>How to install (Ubuntu)?</h2>
         </div>
           <p>
             To install ViralFlow, four steps are necessary: Install system dependencies, in case you haven't installed them; Install Conda; install ViralFlow and, finally, assemble the containers for the analyses. This process is performed only once.
@@ -416,8 +481,8 @@
           </tr>
           <tr>
             <td>adaptersFile</td>
-            <td>test_files/input/ART_adapters.fa</td>
-            <td>Absolute path to fasta file with primers used in multiplex PCR reactions (optional).</td>
+            <td>test_files/input/ART_adapters.bed</td>
+            <td>Absolute path to bed file with primers used in multiplex PCR reactions (optional).</td>
           </tr>
           <tr>
             <td>outDir</td>
