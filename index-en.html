@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>A Fiocruz Genomic Network Technology</h1>
-          <h2>Built to viral analysis guided by reference (version v1.0.0).</h2>
+          <h2>Built to viral analysis guided by reference (version v1.0.1).</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#guia" class="btn-get-started scrollto">Quick Guide</a>
           </div>
@@ -141,7 +141,7 @@
                   </div>
                 </li>
                 <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Singularity v3.8
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Singularity v3.11.4
                     <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                     <p>
@@ -326,6 +326,9 @@
           <h3>Building the containers.</h3>
           <p>
             All steps of ViralFlow are performed in controlled environments, where each tool will have the same version regardless of the research group that is using the tool. ViralFlow has its own method to carry out all this construction of environments, running just one line of code.
+            For the building of containers,  ViralFlow requires that the tool "unsquashfs" be available in the directory "/usr/local/bin/". During the container building process, a step to check for the presence of unsquashfs is performed.
+            If the user's system does not have "unsquashfs" in the ideal location, ViralFlow will suggest the steps necessary to solve this problem.
+            To avoid this, the user can create a symbolic link of the "unsquashfs" tool to the directory "/usr/local/bin/", for this the following command must be executed:
           </p>
           <div class="container-code">
             <div class="row-code">
@@ -337,11 +340,27 @@
             </div>
             <div class ="box-code">
               <p color = "green">
-                viralflow -build_containers<br>
+                sudo ln -s /usr/bin/unsquashfs /usr/local/bin/unsquashfs<br>
               </p>
             </div>
+            <p>
+              After ensuring that "unsquashfs" is in the appropriate location, run the command to build the containers:</p>
+            <div class="containers-code">
+              <div class="row-code">
+                <div class="column left">
+                  <span class="dot" style="background:#ED594A;"></span>
+                  <span class="dot" style="background:#FDD800;"></span>
+                  <span class="dot" style="background:#5AC05A;"></span>
+                </div>
+              </div>
+              <div class ="box-code">
+                <p color = "green">
+                  viralflow -build_containers<br>
+                </p>
+              </div>
           </div>
         </div>
+        <br>
     </section><!-- End Instalação Section -->
 
     <!-- ======= Guia Section ======= -->
@@ -683,6 +702,26 @@
               <td>wgs</td>
               <td>Textual file with mapping metrics, including depth by region.</td>
             </tr>
+            <tr>
+              <td>prefixo_coveragePlot.png</td>
+              <td>PNG file with graphical visualization of genome coverage.</td>
+            </tr>
+            <tr>
+              <td>prefix_coveragePlot.svg</td>
+              <td>SVG file with graphical visualization of genome coverage.</td>
+            </tr>
+            <tr>
+              <td>prefix_coveragePlot.html</td>
+              <td>HTML file  com a visualização gráfica da cobertura do genoma.</td>
+            </tr>
+            <tr>
+              <td>prefix_snpPlot.png</td>
+              <td>PNG file with a graphical visualization of the SNPs detected in the sample relative to the reference genome.</td>
+            </tr>
+            <tr>
+              <td>prefix_snpPlot.svg</td>
+              <td>SVG file with a graphical visualization of the SNPs detected in the sample relative to the reference genome.</td>
+            </tr>
           </table>
           <br>
           <br>
@@ -765,12 +804,14 @@
           <h2>Frequently Asked Questions</h2></div>
           <h4>Should I mount containers for each analysis?</h4>
             <p>No, containers should only be rebuilt if there is an update of the workflow or specific tool of the pipeline (i.e. pangolin).</p>
+          <h4>ViralFlow returned an error due to the absence of "unsquashfs" in the directory "/usr/local/bin/". What should I do?</h4>
+            <p>A symbolic link for "unsquashfs" must be created. To do this, run the following command: sudo ln -s /usr/bin/unsquashfs /usr/local/bin/unsquashfs</p>
           <h4>Should I provide the adapters fasta file?</h4>
             <p>You can provide the fasta file with the PCR primers and/or adaptors in analyzes that use PCR amplification of viral genetic material prior to sequencing.</p>
           <h4>My ViralFlow review reported an error in the Pangolin update step, why? </h4>
             <p>This may happen if the Pangolin team releases a version with new dependencies, in which case you must rebuild the pangolin container with the line: singularity pull docker://staphb/pangolin</p>
           <h4>My installation went wrong in the step of mounting the containers, why?</h4>
-            <p>What might have happened is that you have a different version of singularity than v3.8, you can check that with singularity --version. Another factor that can cause errors is that your internet network blocks query domains for building containers.</p>
+            <p>What might have happened is that you have a different version of singularity than v3.11.4, you can check that with singularity --version. Another factor that can cause errors is that your internet network blocks query domains for building containers.</p>
           <h4>I installed the tool, my files are all organized following the manual, but the samples are not found, why?</h4>
             <p>ViralFlow recognizes samples by the suffixes _R1 or _R2 followed by .fq.gz or .fastq.gz, make sure your samples follow the required pattern. Examples:
               <ul>

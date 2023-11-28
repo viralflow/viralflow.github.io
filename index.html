@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Tecnologia da Rede Genômica Fiocruz.</h1>
-          <h2>Construído para análises com vírus de referência (versão v1.0.0).</h2>
+          <h2>Construído para análises com vírus de referência (versão v1.0.1).</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#guia" class="btn-get-started scrollto">Guia Rápido</a>
           </div>
@@ -139,7 +139,7 @@
                   </div>
                 </li>
                 <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Singularity v3.8
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Singularity v3.11.4
                     <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                     <p>
@@ -325,8 +325,11 @@
           <h3>Construindo os containers</h3>
           <p>
             Todas as etapas do ViralFlow são executadas em ambientes controlados, onde cada ferramenta terá a mesma versão independente do grupo de pesquisa que esteja usando a ferramenta. O ViralFlow possui um método próprio para realizar toda essa construção de ambientes, rodando apenas uma linha de código.
+            Para que a construção dos containers ocorra, o ViralFlow necessita que a ferramenta “unsquashfs”  esteja disponível no diretório “/usr/local/bin/”. Durante o processo de construção dos containers, uma etapa de verificação da presença do unsquashfs é realizada.
+            Caso o sistema do usuário não apresente o unsquashfs no local ideal, o ViralFlow irá sugerir os passos necessários para a solução deste problema.
+            Para evitar este problema, o usuário pode criar um link sombólico da ferramenta “unsquashfs” para o diretório “/usr/local/bin/”, para isso o seguinte comando deve ser executado:
           </p>
-          <div class="container-code">
+          <div class="unsquash-code">
             <div class="row-code">
               <div class="column left">
                 <span class="dot" style="background:#ED594A;"></span>
@@ -336,12 +339,29 @@
             </div>
             <div class ="box-code">
               <p color = "green">
-                viralflow -build_containers<br>
+                sudo ln -s /usr/bin/unsquashfs /usr/local/bin/unsquashfs<br>
               </p>
             </div>
+            <p>
+              Após garantir que o unsquashfs esteja no local apropriado, rode o comando para a construção dos containers:
+            </p>
+            <div class="containers-code">
+              <div class="row-code">
+                <div class="column left">
+                  <span class="dot" style="background:#ED594A;"></span>
+                  <span class="dot" style="background:#FDD800;"></span>
+                  <span class="dot" style="background:#5AC05A;"></span>
+                </div>
+              </div>
+              <div class ="box-code">
+                <p color = "green">
+                  viralflow -build_containers<br>
+                </p>
+              </div>
           </div>
         </div>
         <br>
+        
     </section><!-- End Instalação Section -->
 
     <!-- ======= Guia Section ======= -->
@@ -683,6 +703,26 @@
               <td>wgs</td>
               <td>Arquivo textual com métricas do mapeamento, incluindo profundidade por região.</td>
             </tr>
+            <tr>
+              <td>prefixo_coveragePlot.png</td>
+              <td>Arquivo PNG com a visualização gráfica da cobertura do genoma.</td>
+            </tr>
+            <tr>
+              <td>prefixo_coveragePlot.svg</td>
+              <td>Arquivo SVG com a visualização gráfica da cobertura do genoma.</td>
+            </tr>
+            <tr>
+              <td>prefixo_coveragePlot.html</td>
+              <td>Arquivo HTML com a visualização gráfica da cobertura do genoma.</td>
+            </tr>
+            <tr>
+              <td>prefixo_snpPlot.png</td>
+              <td>Arquivo PNG com a visualização gráfica dos SNPs detectados na amostra em relação ao genoma referência.</td>
+            </tr>
+            <tr>
+              <td>prefixo_snpPlot.svg</td>
+              <td>Arquivo SVG com a visualização gráfica dos SNPs detectados na amostra em relação ao genoma referência.</td>
+            </tr>
           </table>
           <br>
           <br>
@@ -765,12 +805,14 @@
           <h2>Perguntas Frequentes (FQA)</h2></div>
           <h4>Devo montar os containers a cada análise?</h4>
             <p>Não, os containers só devem ser reconstruídos caso ocorra alguma atualização na ferramenta.</p>
+          <h4>O ViralFlow retornou um erro devido a falta do "unsquashfs" no diretório "/usr/local/bin/" o que devo fazer?</h4>
+            <p>Um link simbólico para o "unsquashfs" deve ser criado, para isso rode a seguinte linha de comando: sudo ln -s /usr/bin/unsquashfs /usr/local/bin/unsquashfs</p>
           <h4>Eu devo fornecer o arquivo fasta de adaptadores?</h4>
             <p>Você deve fornecer o arquivo fasta com os primers de PCR apenas em análises que utilizaram PCR para amplificação do material genético viral antes do sequenciamento.</p>
           <h4>Minha análise do ViralFlow reportou um erro na etapa de atualização do Pangolin, por que? </h4>
             <p>Isto pode ocorrer caso a equipe do Pangolin lance uma versão com novas dependências, neste caso, você deve remontar o container do pangolin com a linha: singularity pull docker://staphb/pangolin</p>
           <h4>Minha instalação deu errado na etapa de montar os containers, por que?</h4>
-            <p>O que pode ter acontecido é que você tenha uma versão do singularity diferente da versão v3.8, você pode checar isso com singularity --version. Outro fator que pode ocasionar erros é a sua rede de internet bloquear os dominíos de consulta para construção dos containers.</p>
+            <p>O que pode ter acontecido é que você tenha uma versão do singularity diferente da versão v3.11.4, você pode checar isso com singularity --version. Outro fator que pode ocasionar erros é a sua rede de internet bloquear os dominíos de consulta para construção dos containers.</p>
           <h4>Instalei a ferramenta, meus arquivos estão todos organizados seguindo o manual, mas as amostras não são encontradas, por que?</h4>
             <p>O ViralFlow reconhece amostras pelos sufixos _R1 ou _R2 seguido de .fq.gz ou .fastq.gz, certifique-se que suas amostras seguem o padrão necessário. Exemplos:
               <ul>
