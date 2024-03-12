@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>A Fiocruz Genomic Network Technology</h1>
-          <h2>Built to viral analysis guided by reference (version v1.0.1).</h2>
+          <h2>Built to viral analysis guided by reference (version v1.1.0).</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#guia" class="btn-get-started scrollto">Quick Guide</a>
           </div>
@@ -103,9 +103,24 @@
             The publication of the first version of ViralFlow can be checked <a href="https://www.mdpi.com/1999-4915/14/2/217" target="_blank">at this link</a>. And the update publication, which encompasses the functions described in this documentation, is in development.
             </p>
             <img src="assets/img/flowchart_en.png" class="img-home align-items-center" alt="">
-          </div>
-        </div>
 
+            <div class="section-title">
+              <h2>Intrahost Analysis</h2>
+            </div>
+                <p>
+                  ViralFlow presents its own algorithm to detect iSNV (intrahost Single Nucleotide Variant) regions.<br>
+                  <br>
+                  For a given multiallelic site to have a lower frequency allele considered as iSNV, three conditions must be met, these conditions are schematized in the upper part of the figure below.
+                  <br>
+                  <br>
+                  n this logic, the bottom part of the figure below represents 3 multi-allelic sites and exemplifies the logic for considering which of them should be considered as iSNVs.<br>
+                  <br>
+                </p>
+                <img src="assets/img/viralflow_snv.png" class="img-home align-items-center" alt="">
+              </div>
+            </div>
+    
+          </div>
       </div>
     </section><!-- End Sobre Section -->
 
@@ -819,6 +834,8 @@
                 <li>ART1_denv_R1.fastq.gz, ART1_denv_R2.fastq.gz will be recognized as the ART1_denv sample.</li>
               </ul>
             </p>
+            <h4>Can I run ViralFlow on Windows??</h4>
+             <p>Although some versions of Windows systems integrate a Linux interface through WSL (Windows Subsystem for Linux), our development team has not tested ViralFlow in these environments, therefore, the user is free to test the workflow in this type of environment, However, our team will not provide support for errors arising from these tests.</p>
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 

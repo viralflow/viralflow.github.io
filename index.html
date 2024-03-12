@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Tecnologia da Rede Genômica Fiocruz.</h1>
-          <h2>Construído para análises com vírus de referência (versão v1.0.1).</h2>
+          <h2>Construído para análises com vírus de referência (versão v1.1.0).</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#guia" class="btn-get-started scrollto">Guia Rápido</a>
           </div>
@@ -101,6 +101,20 @@
               A publicação da primeira versão do ViralFlow pode ser conferida  <a href="https://www.mdpi.com/1999-4915/14/2/217" target="_blank">neste link</a>. A publicação da atualização, que engloba as funções descritas nesta documentação, está em preparo.
             </p>
             <img src="assets/img/flowchart_pt-br.png" class="img-home align-items-center" alt="">
+
+        <div class="section-title">
+          <h2>Análise Intrahospedeiro</h2>
+        </div>
+            <p>
+              O ViralFlow apresenta um algoritmo próprio para detectar regiões de iSNV (intrahost Single Nucleotide Variant).<br>
+              <br>
+              Para quem um determinado loci multi alélico tenha um alelo em menor frequência considerado como iSNV, três condições precisam ser satisfeitas, estas condições estão esquematizadas na parte superior da figura abaixo.
+              <br>
+              <br>
+              Nesta lógica, a parte inferior da figura abaixo representa 3 sítios multi alélicos e exemplifica a lógica para considerar quais deles seriam considerados como iSNVs.<br>
+              <br>
+            </p>
+            <img src="assets/img/viralflow_snv_pt-br.png" class="img-home align-items-center" alt="">
           </div>
         </div>
 
@@ -820,6 +834,8 @@
                 <li>ART1_denv_R1.fastq.gz, ART1_denv_R2.fastq.gz será reconhecido como a amostra ART1_denv.</li>
               </ul>
             </p>
+            <h4>Posso rodar o ViralFlow no Windows??</h4>
+            <p>Apesar de algumas versões do sistemas Windows integrarem uma interface linux pelo WSL (Windows Subsystem for Linux), nossa equpe de desenvolvimento não testou o ViralFlow nestes ambientes, dessa forma, o usuário é livre para testar o workflow neste tipo de ambiente, porém nossa equipe não dará suporte para erros provenientes desses testes.</p>
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 
