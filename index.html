@@ -280,18 +280,18 @@
             </div>
             <div class ="box-code">
               <p color = "green">
-                sudo apt update<br>
-                sudo apt upgrade<br>
-                sudo apt install git<br>
-                sudo apt install python3-pip<br>
-                sudo apt-get install uidmap<br>    
+                sudo apt update -y && \<br>
+                &emsp;&emsp;sudo apt upgrade -y && \<br>
+                &emsp;&emsp;sudo apt install curl git python3-pip uidmap -y 
               </p>
             </div>
             <br>
           </div>
-          <h3>Instalando e configurando o ambiente conda</h3>
+          <h3>Instalando e configurando o ambiente micromamba</h3>
           <p>
-            Caso você não tenha o gerenciador de ambientes conda instalado, você pode instalar e configurar com as seguintes linhas:
+            Recomendamos o gerenciados de ambientes micromamba devido a sua paralelização ao fazer o download e instalação das dependências. Caso você utilize outro gerenciador de ambientes, como conda, miniconda, mamba, etc, você pode seguir a instalação do ViralFlow pulando esta etapa, porém, conflitos durante a instalação podem ocorrer devido as versões das dependencias especificadas, e suas respectivas disponibilidades em diferentes canais de recursos.<br>
+            <br>
+            Caso você não tenha o gerenciador de ambientes micromamba instalado, você pode instalar e configurar com as seguintes linhas:
           </p>
           <div class="container-code">
             <div class="row-code">
@@ -304,11 +304,10 @@
             <div class ="box-code">
               <p color = "green">
                 cd $HOME<br>
-                wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"<br>
-                bash Miniconda3-latest-Linux-x86_64.sh -b<br>
-                $HOME/miniconda3/bin/conda init<br>
-                source $HOME/.bashrc<br>
-                conda update conda -y<br>
+                curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/1.5.7 | tar -xvj bin/micromamba<br>
+                ./bin/micromamba shell init -s bash -p ~/micromamba<br>
+                source ~/.bashrc<br>
+                micromamba activate<br>
               </p>
             </div>
           </div>
@@ -329,8 +328,8 @@
               <p color = "green">
                 git clone https://github.com/WallauBioinfo/ViralFlow <br>
                 cd ViralFlow/ <br>
-                conda env create -f envs/env.yml <br>
-                conda activate viralflow <br>
+                micromamba env create -f envs/env.yml <br>
+                micromamba activate viralflow <br>
                 pip install -e . <br>
               </p>
             </div>
