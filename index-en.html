@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>A Fiocruz Genomic Network Technology</h1>
-          <h2>Built to viral analysis guided by reference (version v1.1.1).</h2>
+          <h2>Built to viral analysis guided by reference (version v1.2.0).</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#guia" class="btn-get-started scrollto">Quick Guide</a>
           </div>
@@ -601,6 +601,16 @@
             <td>mafft_threads</td>
             <td>1</td>
             <td>Number of threads to be used in the mafft alignment step.
+          </tr>
+          <tr>
+            <td>dedup</td>
+            <td>false</td>
+            <td>This argument enable dedup mode of fastp. to activate it change value to true on params test file.
+          </tr>
+          <tr>
+            <td>ndedup</td>
+            <td>3</td>
+            <td>When dedup mode is active you can use accuracy levels (1 - 6). You can change this value, but we recommend the standard. How much higher, more RAM and time are consumed. to activate it change value from 1 to 6 on params test file.
           </tr>
         </table>
       </div>
