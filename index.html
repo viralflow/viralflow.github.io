@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Tecnologia da Rede Genômica Fiocruz.</h1>
-          <h2>Construído para análises com vírus de referência (versão v1.1.1).</h2>
+          <h2>Construído para análises com vírus de referência (versão v1.2.0).</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#guia" class="btn-get-started scrollto">Guia Rápido</a>
           </div>
@@ -598,9 +598,14 @@
             <td>Número de threads a ser utilizado na análise da ferramenta bwa.</td>
           </tr>
           <tr>
-            <td>mafft_threads</td>
-            <td>1</td>
-            <td>Número de threads a ser utilizado na análise da ferramenta mafft.
+            <td>dedup</td>
+            <td>false</td>
+            <td>Este argumento habilita o modo de desduplicação do fastp. para ativá-lo, altere o valor para true no arquivo de teste de parâmetros.
+          </tr>
+          <tr>
+            <td>ndedup</td>
+            <td>3</td>
+            <td>Quando o modo de desduplicação está ativo, você pode usar níveis de precisão (1 - 6). Você pode alterar esse valor, mas recomendamos o padrão. Quanto mais alto, mais RAM e tempo são consumidos. para ativá-lo altere o valor de 1 para 6 no arquivo de teste de parâmetros.
           </tr>
         </table>
       </div>
