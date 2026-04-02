@@ -1,900 +1,231 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ViralFlow</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>ViralFlow Documentation Redirect</title>
+  <meta name="description"
+    content="ViralFlow official documentation has moved to ReadTheDocs. You are being redirected.">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent: #2f81f7;
+      --accent-hover: #58a6ff;
+      --card-bg: rgba(22, 27, 34, 0.8);
+      --card-border: rgba(48, 54, 61, 0.8);
+    }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- =======================================================
-  * Template Name: Arsha - v4.9.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+      background-image: radial-gradient(circle at 50% -20%, #1f6feb33 0%, #0d1117 50%);
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      max-width: 650px;
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .logo-container {
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 150px;
+      background: var(--accent);
+      filter: blur(60px);
+      opacity: 0.3;
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulseGlow 4s infinite alternate;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      background: linear-gradient(180deg, #ffffff 0%, #c9d1d9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.875rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 14px 0 rgba(47, 129, 247, 0.39);
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(47, 129, 247, 0.5);
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .redirect-status {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(139, 148, 158, 0.3);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes pulseGlow {
+      from {
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      to {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
+
 <body>
-  </script>
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">ViralFlow</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#sobre">Sobre</a></li>
-          <li><a class="nav-link scrollto" href="#dependencias">Dependências</a></li>
-          <li><a class="nav-link scrollto" href="#instalacao">Instalação</a></li>
-          <li><a class="nav-link scrollto" href="#guia">Guia Rápido</a></li>
-          <li><a class="nav-link scrollto" href="#argumentos">Argumentos</a></li>
-          <li><a class="nav-link scrollto" href="#outputs">Outputs</a></li>
-          <li><a class="getstarted scrollto" href="#faq">FAQ</a></li>
-          <li class="dropdown">
-            <a href="#">A文</a>
-            <ul>
-              <li><a href="index.html"><img src="assets/img/portuguese-language.png" class="img-flag"> Português</a></li>
-              <li><a href="index-en.html"><img src="assets/img/english-language.png" class="img-flag"> English</a></li>
-              <li><a href="index-es.html"><img src="assets/img/spanish-language.png" class="img-flag"> Español</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto"><img src="assets/img/portuguese-language.png" class="img-flag"></a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Tecnologia da Rede Genômica Fiocruz.</h1>
-          <h2>Construído para análises com vírus de referência (versão v1.3.0).</h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#guia" class="btn-get-started scrollto">Guia Rápido</a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/viralflow_logo.png" class="img-home" alt="" style="object-fit:contain;width: 400px;height: 400px;">
-        </div>
-      </div>
+  <div class="container">
+    <div class="logo-container">
+      <div class="logo-glow"></div>
+      <img src="assets/img/viralflow_logo.png" alt="ViralFlow Logo" class="logo">
     </div>
 
-  </section><!-- End Hero -->
+    <h1>Our Documentation Has Moved</h1>
 
-  <main id="main">
+    <p>We've moved our documentation to Read The Docs. Click the button below to visit our new docs.</p>
 
-    <!-- ======= Sobre Section ======= -->
-    <section id="sobre" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Sobre</h2>
-        </div>
-            <p>
-              ViralFlow é um workflow feito para profissionais da saúde, cujo objetivo é realizar todas as etapas de uma análise genômica viral por referência.<br>
-              <br>
-              O código foi escrito na linguagem de workflow Nextflow, e pode ser aplicado para diferentes vírus, onde o usuário, após instalar a ferramenta, precisa rodar apenas 1 linha de código.<br>
-              <br>
-              A equipe de desenvolvedores do ViralFlow não oferece suporte, até o presente momento, para erros relacionados à aplicação do código para outras plataformas. Atualmente, o código foi testado apenas para dados gerados por sequenciadores Illumina, utilizando estratégia de reads pareados (paired-end) ou não pareados (single-end).<br>
-              <br>
-              A publicação da primeira versão do ViralFlow pode ser conferida  <a href="https://www.mdpi.com/1999-4915/14/2/217" target="_blank">neste link</a>. A publicação da versão 1.0, que engloba as funções descritas nesta documentação, pode ser conferida neste <a href=" https://academic.oup.com/nargab/article/6/2/lqae056/7682253" target="_blank">neste link</a>.
-            </p>
-            <img src="assets/img/flowchart_pt-br.png" class="img-home align-items-center" alt="">
-
-        <div class="section-title">
-          <h2>Análise Intrahospedeiro</h2>
-        </div>
-            <p>
-              O ViralFlow apresenta um algoritmo próprio para detectar regiões de iSNV (intrahost Single Nucleotide Variant).<br>
-              <br>
-              Para quem um determinado loci multi alélico tenha um alelo em menor frequência considerado como iSNV, três condições precisam ser satisfeitas, estas condições estão esquematizadas na parte superior da figura abaixo.
-              <br>
-              <br>
-              Nesta lógica, a parte inferior da figura abaixo representa 3 sítios multi alélicos e exemplifica a lógica para considerar quais deles seriam considerados como iSNVs.<br>
-              <br>
-            </p>
-            <img src="assets/img/viralflow_snv_pt-br.png" class="img-home align-items-center" alt="">
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Sobre Section -->
-
-    <!-- ======= Dependencias Section ======= -->
-    <section id="dependencias" class="why-us section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>dependências</h2>
-        </div>
-            <p>
-              Para instalação e execução do ViralFlow, você precisará de pelo menos 4,4Gb de armazenamento de disco, para a criação dos contêineres, e de três dependências:
-            </p>
-            <ul>
-              <li>pip</li>
-              <li>Git</li>
-              <li>uidmap</li>
-            </ul>
-            <p>
-              A lista com as versões de cada ferramenta utilizadas no ViralFlow pode ser conferida  <a href="https://github.com/WallauBioinfo/ViralFlow/tree/main/versions" target="_blank">neste link</a>. Além disso,para uma instalação com um ambiente controlado, utilizamos o Conda. O ViralFlow utiliza a ferramenta de containerizacao  Singularity e da linguagem de workflow Nextflow. Para garantir o funcionamento correto do ViralFlow, é essencial as versões corretas do Singularity e do Nextflow, ambos podem ser instalados juntamente com o ViralFlow.
-            </p>
-            <br>
-            <div class="accordion-list">
-              <ul>
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed"><span>01</span> Conda
-                    <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Conda é um gerenciador de pacotes de código aberto. Foi desenvolvido inicialmente para gerenciar ambientes de pacotes da linguagem Python, permitindo o controle de versões.<br>
-                      <br>
-                      Para que todos os usuários utilizem o ViralFlow com as versões exatas do Singularity e do Nextflow, nós criamos um ambiente com estas versões, o que permite uma padronização nos ambientes de instalação do ViralFlow, bem como a resolução de eventuais erros.<br>
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Singularity v3.11.4
-                    <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Singularity é uma ferramenta que executa a virtualização no nível do sistema operacional, tarefa popularmente conhecida como conteinerização. <br>
-                      <br>
-                      Para uma pipeline computacional, como o ViralFlow, funcionar, ela precisa de várias dependências (outras ferramentas e bibliotecas do sistema operacional) e para evitar que o usuário precise instalar todas as dependências manualmente  em sua máquina, nós usamos o sistema de containers. <br>
-                      <br>
-                      Com a conteinerização, o usuário só precisa instalar uma ferramenta, neste caso o Singularity, e depois construir os containers com base em arquivos de receita (no caso do ViralFlow, isto também foi automatizado com o script setupContainers.sh). Dessa forma, diferentes grupos de pesquisa conseguem rodar a ferramenta com o mesmo ambiente computacional, sem mudanças no comportamento do ViralFlow, o que garante a reprodutibilidade dos resultados.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Nextflow 22.04 <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Nextflow é um gerenciador de workflows de bioinformática que permite o desenvolvimento de workflows portáteis e reprodutíveis. <br>
-                      <br>
-                      Nextflow permite a execução dos workflows em diversos ambientes computacionais, como ambientes locais, de computação de alta performance (HPC), serviços de computação na nuvem, como AWS e Google Cloud, e também em sistemas de orquestração de containers, como Kubernetes. <br>
-                      <br>
-                      Além disso, o Nextflow provê suporte para gerenciamento de dependências com Conda, Docker, Podman ou Singularity.                      
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-        </div>
-      </div>
-    </section><!-- End Dependencias Section -->
-
-    <!-- ======= Instalação Section ======= -->
-    <section id="instalacao" class="skills">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Como Instalar (MacOS)?</h2>
-        </div>
-          <p>
-            Devido a limitações do uso do singularity no MacOS, para rodar o ViralFlow neste tipo de sistema, sugerimos a utilização de um software de virtualização Linux chamado <a href="https://github.com/lima-vm/lima">Lima</a>. Dessa forma, o usuário deve seguir três passos para instalação do Lima, e depois prosseguir com o guia de instalação do Ubuntu.</p>
-
-          <h3>Instalando o Lima</h3>
-          <p>
-            Instale o Lima utilizando o gerenciador de pacotes Homebrew:
-          </p>
-          <div class="container-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                brew install lima
-              </p>
-            </div>
-            <br>
-          </div>
-          <h3>Instalando a instância Ubuntu</h3>
-          <p>
-            Siga o passo a passo da instalação de uma instância Ubuntu inserindo o comando abaixo
-          </p>
-          <div class="container-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                limactl start
-              </p>
-            </div>
-          </div>
-          <br>
-          <h3>Inicie o Ubuntu</h3>
-          <p>
-            Quando a máquina virtual for instalada, utilize o comando abaixo para iniciar o Ubuntu e siga os passos de instalação do ViralFlow normalmente.
-          </p>
-          <div class="container-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                lima
-              </p>
-            </div>
-          </div>
-          <br>
-        </div>
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Como Instalar (Ubuntu)?</h2>
-        </div>
-          <p>
-            Para realizar a instalação do ViralFlow, são necessários  quatro passos: Instalar as dependencies de sistema, caso você não as tenha instalado; Instalar o Conda; instalar o ViralFlow e por fim, montar os containers para as análises. Este processo é realizado uma única vez.
-            <br>
-            <br>
-            A instalação e uso do ViralFlow já foi testada nos sistemas:
-            <ul>
-              <li> Ubuntu 20.04 LTS;</li>
-              <li> Ubuntu 22.04 LTS;</li>
-            </ul>
-          </p>
-          <h3>Instalando as dependências do sistema</h3>
-          <p>
-            Caso você não tenha o instalador de dependencias pip, o sistema de controle de versões git, e o pacote uidmap, você deve realizar a instalação com as seguintes linhas:
-          </p>
-          <div class="container-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                sudo apt update -y && \<br>
-                &emsp;&emsp;sudo apt upgrade -y && \<br>
-                &emsp;&emsp;sudo apt install curl git python3-pip uidmap -y 
-              </p>
-            </div>
-            <br>
-          </div>
-          <h3>Instalando e configurando o ambiente micromamba</h3>
-          <p>
-            Recomendamos o gerenciados de ambientes micromamba devido a sua paralelização ao fazer o download e instalação das dependências. Caso você utilize outro gerenciador de ambientes, como conda, miniconda, mamba, etc, você pode seguir a instalação do ViralFlow pulando esta etapa, porém, conflitos durante a instalação podem ocorrer devido as versões das dependencias especificadas, e suas respectivas disponibilidades em diferentes canais de recursos.<br>
-            <br>
-            Caso você não tenha o gerenciador de ambientes micromamba instalado, você pode instalar e configurar com as seguintes linhas:
-          </p>
-          <div class="container-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                cd $HOME<br>
-                curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/1.5.7 | tar -xvj bin/micromamba<br>
-                ./bin/micromamba shell init -s bash -p ~/micromamba<br>
-                source ~/.bashrc<br>
-                micromamba activate<br>
-              </p>
-            </div>
-          </div>
-          <br>
-          <h3>Instalando o ViralFlow</h3>
-          <p>
-            Caso você ja tenha as dependencias citadas e o conda instalado, você pode instalar o ViralFlow com 5 linhas de código:
-          </p>
-          <div class="container-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                git clone https://github.com/WallauBioinfo/ViralFlow <br>
-                cd ViralFlow/ <br>
-                micromamba env create -f envs/env.yml <br>
-                micromamba activate viralflow <br>
-                pip install -e . <br>
-              </p>
-            </div>
-          </div>
-          <br>
-          <h3>Construindo os containers</h3>
-          <p>
-            Todas as etapas do ViralFlow são executadas em ambientes controlados, onde cada ferramenta terá a mesma versão independente do grupo de pesquisa que esteja usando a ferramenta. O ViralFlow possui um método próprio para realizar toda essa construção de ambientes, rodando apenas uma linha de código.
-            Para que a construção dos containers ocorra, o ViralFlow necessita que a ferramenta “unsquashfs”  esteja disponível no diretório “/usr/local/bin/”. Durante o processo de construção dos containers, uma etapa de verificação da presença do unsquashfs é realizada.
-            Caso o sistema do usuário não apresente o unsquashfs no local ideal, o ViralFlow irá sugerir os passos necessários para a solução deste problema.
-            Para evitar este problema, o usuário pode criar um link sombólico da ferramenta “unsquashfs” para o diretório “/usr/local/bin/”, para isso o seguinte comando deve ser executado:
-          </p>
-          <div class="unsquash-code">
-            <div class="row-code">
-              <div class="column left">
-                <span class="dot" style="background:#ED594A;"></span>
-                <span class="dot" style="background:#FDD800;"></span>
-                <span class="dot" style="background:#5AC05A;"></span>
-              </div>
-            </div>
-            <div class ="box-code">
-              <p color = "green">
-                sudo ln -s /usr/bin/unsquashfs /usr/local/bin/unsquashfs<br>
-              </p>
-            </div>
-            <p>
-              Após garantir que o unsquashfs esteja no local apropriado, rode o comando para a construção dos containers:
-            </p>
-            <div class="containers-code">
-              <div class="row-code">
-                <div class="column left">
-                  <span class="dot" style="background:#ED594A;"></span>
-                  <span class="dot" style="background:#FDD800;"></span>
-                  <span class="dot" style="background:#5AC05A;"></span>
-                </div>
-              </div>
-              <div class ="box-code">
-                <p color = "green">
-                  viralflow -build_containers<br>
-                </p>
-              </div>
-          </div>
-        </div>
-        <br>
-        
-    </section><!-- End Instalação Section -->
-
-    <!-- ======= Guia Section ======= -->
-    <section id="guia" class="skills">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Como rodar (Guia Rápido)</h2>
-          <p align="justify">O ViralFlow fornece 2 modos de uso: sars-cov2 e custom. Independente do modo, o usuário deve passar os caminhos absolutos (todo o caminho até o diretório ou arquivo a ser indicado para o pipeline ex. /home/usuario/teste/) para cada arquivo de entrada, caso contrário o pipeline será interrompido durante aexecução. A explicação de cada argumento pode ser <a href="https://viralflow.github.io/#argumentos">conferida aqui</a>.</p>
-          <br>
-          <div class="row">
-            <div class="content" data-aos="fade-left" data-aos-delay="100">
-            <h3 align="justify"> Customizando o banco do snpEff </h3>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                <p align="justify">
-                Por padrão, a ferramenta snpEff presente no ViralFlow vem configurada apenas com o genoma NC_045512.2 do vírus SARS-CoV-2. Caso você queira incluir a análise do snpEff para outros vírus, você deve atualizar o banco do snpEff com a seguinte linha, exemplo com Dengue:</p><br>
-            </div>
-            <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="100">
-              <div class="container-code" style="margin-top:10px !important">
-                <div class="row-code">
-                  <div class="column left" align="right">
-                    <span class="dot" style="background:#ED594A;"></span>
-                    <span class="dot" style="background:#FDD800;"></span>
-                    <span class="dot" style="background:#5AC05A;"></span>
-                  </div>
-                </div>
-                <div class ="box-code">
-                  <p color = "green" align="left">
-                    viralflow -add_entry_to_snpeff --org_name Dengue --genome_code NC_001474.2             
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="content" data-aos="fade-left" data-aos-delay="100">
-              <h3 align="justify"> sars-cov2  </h3>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                <p align="justify">
-                  Neste modelo, a análise é realizada com base no genoma de referência NC_045512.2, e possui, como análises adicionais, a assinatura de linhagens com a ferramenta Pangolin, e a assinatura de clados e mutações com a ferramenta Nextclade. Para isto, o usuário precisa construir um arquivo com os parâmetros da análise, um exemplo pode ser <a href="https://github.com/WallauBioinfo/ViralFlow/blob/main/test_files/sars-cov-2.params">conferido aqui</a>.
-                </p><br>          
-            </div>
-            <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="100">
-              <div class="container-code">
-                <div class="row-code">
-                  <div class="column left" align="right">
-                    <span class="dot" style="background:#ED594A;"></span>
-                    <span class="dot" style="background:#FDD800;"></span>
-                    <span class="dot" style="background:#5AC05A;"></span>
-                  </div>
-                </div>
-                <div class ="box-code">
-                  <p color = "green" align="left">
-                    viralflow -run --params_file test_files/sars-cov-2.params  
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="content" data-aos="fade-left" data-aos-delay="100">
-              <h3 align="justify"> custom </h3>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                <p align="justify">
-                  Neste modelo, a análise é realizada com base nos arquivos para o vírus que o usuário deseja analisar. Neste modo, o usuário é responsável por passar cada um dos arquivos necessários para a análise. Caso o usuário deseje realizar a análise do snpEff, deve passar o código do refseq do genoma viral para a análise:</p><br>     
-            </div>
-            <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="100">
-              <div class="container-code">
-                <div class="row-code">
-                  <div class="column left" align="right">
-                    <span class="dot" style="background:#ED594A;"></span>
-                    <span class="dot" style="background:#FDD800;"></span>
-                    <span class="dot" style="background:#5AC05A;"></span>
-                  </div>
-                </div>
-                <div class ="box-code">
-                  <p color = "green" align="left">
-                    viralflow -run --params_file test_files/denv.params         
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="content" data-aos="fade-left" data-aos-delay="100">
-              <h3 align="justify"> Atualização pangolin </h3>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                <p align="justify">
-                  Periodicamente a ferramenta pangolin atualiza o banco de linhagens, bem como a filogenia de classificação do usher, as constelações de mutações do scorpio, e o modelo treinado do pangoLearn. Para realizar a atualização da ferramenta e/ou de suas bases de dados, basta rodar o ViralFlow com algum dos comandos:</p><br>     
-            </div>
-            <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="100">
-              <div class="container-code">
-                <div class="row-code">
-                  <div class="column left" align="right">
-                    <span class="dot" style="background:#ED594A;"></span>
-                    <span class="dot" style="background:#FDD800;"></span>
-                    <span class="dot" style="background:#5AC05A;"></span>
-                  </div>
-                </div>
-                <div class ="box-code">
-                  <p color = "green" align="left">
-                    #atualiza a ferramenta e as bases de dados<br>
-                    viralflow -update_pangolin<br>
-                    <br>
-                    #atualiza apenas as bases de dados<br>
-                    viralflow -update_pangolin_data<br>                     
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Guia Section -->
-
-    <!-- ======= Argumentos Section ======= -->
-    <section id="argumentos" class="cta">
-      <div class="container" data-aos="zoom-in">
-        <div class="section-title">
-          <h2>Argumentos</h2>
-        <table id="tables">
-          <tr>
-            <th>Argumento</th>
-            <th>Valor Padrão (default)</th>
-            <th>Descrição</th>
-          </tr>
-          <tr>
-            <td>virus</td>
-            <td>sars-cov2</td>
-            <td>Tipo de análise (sars-cov2 ou custom)</td>
-          </tr>
-          <tr>
-            <td>primersBED</td>
-            <td>null</td>
-            <td>Caminho absoluo do arquivo BED contendo informações dos primers usados na amplificação genomica (opcional).</td>
-          </tr>
-          <tr>
-            <td>outDir</td>
-            <td>launchDir/output/</td>
-            <td>Caminho absoluto para o diretório onde serão armazeandos os resultados.</td>
-          </tr>
-          <tr>
-            <td>inDir</td>
-            <td>launchDir/input/</td>
-            <td>Caminho absoluto para o dirretório com os dados de entrada (diretório com os arquivos FASTQ).</td>
-          </tr>
-          <tr>
-            <td>runSnpEff</td>
-            <td>true</td>
-            <td>Necessidade de rodar a ferramenta snpEff (true ou false).</td>
-          </tr>
-          <tr>
-            <td>writeMappedReads</td>
-            <td>true</td>
-            <td>Necessidade de gerar os arquivos FASTQ contendo as leituras de sequenciamento que mapearam no genoma de referência.</td>
-          </tr>
-          <tr>
-            <td>minLen</td>
-            <td>75</td>
-            <td>Tamanho mínimo que o read deve ter para nao ser eliminado pelo FastP.</td>
-          </tr>
-          <tr>
-            <td>depth</td>
-            <td>5</td>
-            <td>Profundidade mínima que uma região deve ser sequenciada para ser considerada no consenso.</td>
-          </tr>
-          <tr>
-            <td>mapping_quality</td>
-            <td>30</td>
-            <td>Limiar de qualidade de mapeamento para chamada de variantes.</td>
-          </tr>
-          <tr>
-            <td>base_quality</td>
-            <td>30</td>
-            <td>Limiar de qualidade de base para chamada de variantes.</td>
-          </tr>
-          <tr>
-            <td>minDpIntrahost</td>
-            <td>100</td>
-            <td>Profundidade mínima que uma região deve ter para ser considerada na análise de intrahost.</td>
-          </tr>
-          <tr>
-            <td>trimLen</td>
-            <td>0</td>
-            <td>Número de bases que devem ser cortadas (“trimadas”) em ambas as extremidades dos reads.</td>
-          </tr>
-          <tr>
-            <td>refGenomeCode</td>
-            <td>null</td>
-            <td>Código refseq do genoma a ser utilizado na análise custom.</td>
-          </tr>
-          <tr>
-            <td>referenceGFF</td>
-            <td>null</td>
-            <td>Arquivo GFF do genoma a ser utilizado na análise custom.</td>
-          </tr>
-          <tr>
-            <td>referenceGenome</td>
-            <td>null</td>
-            <td>Arquivo fasta do genoma a ser utilizado na análise custom.</td>
-          </tr>
-          <tr>
-            <td>nextflowSimCalls</td>
-            <td>null</td>
-            <td>Número de chamadas simultâneas que o nextflow pode realizar </td>
-          </tr>
-          <tr>
-            <td>fastp_threads</td>
-            <td>1</td>
-            <td>Número de threads a ser utilizado na análise da ferramenta fastp.</td>
-          </tr>
-          <tr>
-            <td>bwa_threads</td>
-            <td>1</td>
-            <td>Número de threads a ser utilizado na análise da ferramenta bwa.</td>
-          </tr>
-          <tr>
-            <td>dedup</td>
-            <td>false</td>
-            <td>Este argumento habilita o modo de desduplicação do fastp. para ativá-lo, altere o valor para true no arquivo de teste de parâmetros.
-          </tr>
-          <tr>
-            <td>ndedup</td>
-            <td>3</td>
-            <td>Quando o modo de desduplicação está ativo, você pode usar níveis de precisão (1 - 6). Você pode alterar esse valor, mas recomendamos o padrão. Quanto mais alto, mais RAM e tempo são consumidos. para ativá-lo altere o valor de 1 para 6 no arquivo de teste de parâmetros.
-          </tr>
-        </table>
-      </div>
-    </div>
-    </section><!-- End Argumentos Section -->
-
-    <!-- ======= Outputs Section ======= -->
-    <section id="outputs" class="portfolio">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Arquivos de Outputs</h2>
-          <p>A ferramenta ViralFlow produz 2 tipos de outputs: específico e compilado.</p><br>
-          <h3 align="left"> Específico </h3>
-          <p align="justify">Para cada amostra na análise será criado um diretório de resultados com o padrão `prefixo_results` onde o prefixo é um código criado a partir do nome do arquivo fastq da amostra. Cada diretório conta com os seguintes resultados:</p><br>
-          <table id="tables">
-            <tr>
-              <th>Arquivo</th>
-              <th>Descrição</th>
-            </tr>
-            <tr>
-              <td>prefixo.all.fa.pango.out.csv</td>
-              <td>Arquivo tabular com os resultados da ferramenta pangolin.</td>
-            </tr>
-            <tr>
-              <td>prefixo.ann.vcf</td>
-              <td>Arquivo vcf em formato tsv (Tab separated value - valores separados por vírgula) com a anotação das variantes feita pela ferramenta snpEff.</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.all.fa.nextclade.csv</td>
-              <td>Arquivo tabular com os resultados da ferramenta nextclade.</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.amb.fa</td>
-              <td>Genoma consenso com nucleotídeos ambíguos em posições de alelos múltiplos.</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.fa</td>
-              <td>Genoma consenso com nucleotídeos majoritários. Consenso de maioria, normalmente depositado no GISAID.</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.fa.algn</td>
-              <td>Genoma consenso alinhado com o genoma de referência (seguindo o mesmo tamanho, mafft --keeplenght).</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.fa.algn.minor.fa</td>
-              <td>Genoma consenso com nucleotídeos minoritários.</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.fa.bc.intrahost.short.tsv</td>
-              <td>Arquivo tabular resumindo as posições genômicas onde as variantes intrahospedeiro aparecem.</td>
-            </tr>
-            <tr>
-              <td>prefixo.depth5.fa.bc.intrahost.tsv</td>
-              <td>Arquivo tabular com todas as informações das posições de variantes intrahospedeiro.</td>
-            </tr>
-            <tr>
-              <td>prefixo.mapped.R1.fq.gz</td>
-              <td>Arquivo FASTQ R1 com os reads mapeados.</td>
-            </tr>
-            <tr>
-              <td>prefixo.mapped.R2.fq.gz</td>
-              <td>Arquivo FASTQ R2 com os reads mapeados.</td>
-            </tr>
-            <tr>
-              <td>prefixo.metrics.genome.tsv</td>
-              <td>Arquivo tabular com métricas de profundidade e cobertura do mapeamento.</td>
-            </tr>
-            <tr>
-              <td>prefixo.fastp.html</td>
-              <td>Arquivo html com a sumarização dos resultados da ferramenta fastp.</td>
-            </tr>
-            <tr>
-              <td>prefixo_snpEff_summary.html</td>
-              <td>Arquivo html com a sumarização dos resultados da ferramenta snpEff.</td>
-            </tr>
-            <tr>
-              <td>prefixo.sorted.bam</td>
-              <td>Arquivo com o mapeamento sorteado dos reads da amostra contra o genoma de referência.</td>
-            </tr>
-            <tr>
-              <td>prefixo.tsv</td>
-              <td>Arquivo vcf-like gerado pelo iVar.</td>
-            </tr>
-            <tr>
-              <td>prefixo.unmapped.R1.bam.fq</td>
-              <td>Arquivo FASTQ R1 com os reads não mapeados.</td>
-            </tr>
-            <tr>
-              <td>prefixo.unmapped.R2.bam.fq</td>
-              <td>Arquivo FASTQ R2 com os reads não mapeados.</td>
-            </tr>
-            <tr>
-              <td>prefixo.vcf</td>
-              <td>Arquivo vcf.</td>
-            </tr>
-            <tr>
-              <td>metrics.alignment_summary_metrics</td>
-              <td>Arquivo de texto com um sumário de diversas métricas do mapeamento.</td>
-            </tr>
-            <tr>
-              <td>nextclade.errors.csv</td>
-              <td>Arquivo informando os erros do nextclade.</td>
-            </tr>
-            <tr>
-              <td>nextclade_gene_*.translation.fasta</td>
-              <td>Arquivo fasta com as proteínas de cada gene.</td>
-            </tr>
-            <tr>
-              <td>snpEff_genes.txt</td>
-              <td>Arquivo tabular com o número de variantes por impacto por gene.</td>
-            </tr>
-            <tr>
-              <td>wgs</td>
-              <td>Arquivo textual com métricas do mapeamento, incluindo profundidade por região.</td>
-            </tr>
-            <tr>
-              <td>prefixo_coveragePlot.png</td>
-              <td>Arquivo PNG com a visualização gráfica da cobertura do genoma.</td>
-            </tr>
-            <tr>
-              <td>prefixo_coveragePlot.svg</td>
-              <td>Arquivo SVG com a visualização gráfica da cobertura do genoma.</td>
-            </tr>
-            <tr>
-              <td>prefixo_coveragePlot.html</td>
-              <td>Arquivo HTML com a visualização gráfica da cobertura do genoma.</td>
-            </tr>
-            <tr>
-              <td>prefixo_snpPlot.png</td>
-              <td>Arquivo PNG com a visualização gráfica dos SNPs detectados na amostra em relação ao genoma referência.</td>
-            </tr>
-            <tr>
-              <td>prefixo_snpPlot.svg</td>
-              <td>Arquivo SVG com a visualização gráfica dos SNPs detectados na amostra em relação ao genoma referência.</td>
-            </tr>
-          </table>
-          <br>
-          <br>
-          <h3 align="left"> Compilado</h3>
-          <p align="justify">Ao final da análise, é gerado um diretório nomeado COMPILED_OUTPUT com os resultados compilados, onde:</p><br>
-          <table id="tables">
-            <tr>
-              <th>Arquivo</th>
-              <th>Descrição</th>
-            </tr>
-            <tr>
-              <td>errors_detected.csv</td>
-              <td>Amostras que não foi possível gerar consenso.</td>
-            </tr>
-            <tr>
-              <td>lineage_summary.csv</td>
-              <td>É gerado em análises do sars-cov-2, apresenta a contagem das linhagens identificadas na análise, incluindo as linhagens de genomas minoritários.</td>
-            </tr>
-            <tr>
-              <td>major_summary.csv</td>
-              <td>Arquivo tabular com um sumário da profundidade, cobertura e linhagem (em caso de análises do sars-cov-2) dos consensos majoritários.</td>
-            </tr>
-            <tr>
-              <td>minor_summary.csv</td>
-              <td>Arquivo tabular com um sumário da profundidade, cobertura e linhagem (em caso de análises do sars-cov-2) dos consensos minoritários.</td>
-            </tr>
-            <tr>
-              <td>mutations.csv</td>
-              <td>Arquivo tabular com as mutações encontradas.</td>
-            </tr>
-            <tr>
-              <td>nextclade.csv</td>
-              <td>Arquivo tabular com o resultado do nextclade (em caso de análises do sars-cov-2).</td>
-            </tr>
-            <tr>
-              <td>pango.csv</td>
-              <td>Arquivo tabular com o resultado do pangolin (em caso de análises do sars-cov-2).</td>
-            </tr>
-            <tr>
-              <td>reads_count.csv</td>
-              <td>Arquivo tabular com a contagem de reads por amostra.</td>
-            </tr>
-            <tr>
-              <td>seqbatch.fa</td>
-              <td>Arquivo fasta com os consensos majoritários.</td>
-            </tr>
-            <tr>
-              <td>short_summary.csv</td>
-              <td>Arquivo tabular com um sumário da profundidade, cobertura e linhagem (em caso de análises do sars-cov-2) de ambos os consensos, com as seguintes colunas:<br>
-              <br>
-              <ul>
-                <li>cod: Prefixo definido para cada amostra;</li>
-                <li>mean_depth_coverag: Profundidade média;</li>
-                <li>sd_depth_coverage: Desvio padrão da profundidade média;</li>
-                <li>median_depth_coverage: Profundidade mediana;</li>
-                <li>taxon: Prefixo da mostra seguido do codigo de consenso (major ou minor);</li>
-                <li>lineage (apenas para sars-cov-2): Linhagem do vírus;</li>
-                <li>scorpio_call (apenas para sars-cov-2): Variante do vírus;</li>
-                <li>coverage_breadth: Cobertura da montagem.</li>
-              </ul></td>
-            </tr>
-            <tr>
-              <td>wgs.csv</td>
-              <td>Arquivo tabular com o resultado do picard.</td>
-            </tr>
-            <tr>
-              <td>VF_REPORT/index.html</td>
-              <td>Arquivo html com a compilação dos resultados do fastp e do snpEff.</td>
-            </tr>
-          </table>
-        </div>
-        </div>
-      </div>
-    </section><!-- End Output Section -->
-
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="portfolio">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Perguntas Frequentes (FAQ)</h2></div>
-          <h4>Devo montar os containers a cada análise?</h4>
-            <p>Não, os containers só devem ser reconstruídos caso ocorra alguma atualização na ferramenta.</p>
-          <h4>O ViralFlow retornou um erro devido a falta do "unsquashfs" no diretório "/usr/local/bin/" o que devo fazer?</h4>
-            <p>Um link simbólico para o "unsquashfs" deve ser criado, para isso rode a seguinte linha de comando: sudo ln -s /usr/bin/unsquashfs /usr/local/bin/unsquashfs</p>
-          <h4>Eu devo fornecer o arquivo fasta de adaptadores?</h4>
-            <p>Você deve fornecer o arquivo fasta com os primers de PCR apenas em análises que utilizaram PCR para amplificação do material genético viral antes do sequenciamento.</p>
-          <h4>Minha análise do ViralFlow reportou um erro na etapa de atualização do Pangolin, por que? </h4>
-            <p>Isto pode ocorrer caso a equipe do Pangolin lance uma versão com novas dependências, neste caso, você deve remontar o container do pangolin com a linha: singularity pull docker://staphb/pangolin</p>
-          <h4>Minha instalação deu errado na etapa de montar os containers, por que?</h4>
-            <p>O que pode ter acontecido é que você tenha uma versão do singularity diferente da versão v3.11.4, você pode checar isso com singularity --version. Outro fator que pode ocasionar erros é a sua rede de internet bloquear os dominíos de consulta para construção dos containers.</p>
-          <h4>Instalei a ferramenta, meus arquivos estão todos organizados seguindo o manual, mas as amostras não são encontradas, por que?</h4>
-            <p>O ViralFlow reconhece amostras pelos sufixos _R1 ou _R2 seguido de .fq.gz ou .fastq.gz, certifique-se que suas amostras seguem o padrão necessário. Exemplos:
-              <ul>
-                <li>ART1_R1.fq.gz, ART1_R2.fq.gz será reconhecido como a amostra ART1;</li>
-                <li>ART1_denv_R1.fastq.gz, ART1_denv_R2.fastq.gz será reconhecido como a amostra ART1_denv.</li>
-              </ul>
-            </p>
-            <h4>Posso rodar o ViralFlow no Windows??</h4>
-            <p>Apesar de algumas versões do sistemas Windows integrarem uma interface linux pelo WSL (Windows Subsystem for Linux), nossa equpe de desenvolvimento não testou o ViralFlow nestes ambientes, dessa forma, o usuário é livre para testar o workflow neste tipo de ambiente, porém nossa equipe não dará suporte para erros provenientes desses testes.</p>
-            <h4>Como citar?</h4>
-            <p>Atualmente existem duas publicações do ViralFlow, a primeira, de 2022 que engloba as versões "pré" 1.0, e a segunda de 2024 que engloba a versão 1.0</p>
-            <p>Dezordi, F.Z.; Neto, A.M.d.S.; Campos, T.d.L.; Jeronimo, P.M.C.; Aksenen, C.F.; Almeida, S.P.; Wallau, G.L.; on behalf of the Fiocruz COVID-19 Genomic Surveillance Network. ViralFlow: A Versatile Automated Workflow for SARS-CoV-2 Genome Assembly, Lineage Assignment, Mutations and Intrahost Variant Detection. Viruses 2022, 14, 217. https://doi.org/10.3390/v14020217</p>
-            <p>Silva, A. F., Silva Neto, A. M., Aksenen, C. F., Jeronimo, P. M. C., Dezordi, F. Z., Almeida, S. P., Costa, H. M. P., Salvato, R. S., Campos, T. L., Wallau, G. L., on behalf of the Fiocruz Genomic Network. (2024). ViralFlow v1.0—a computational workflow for streamlining viral genomic surveillance. NAR Genomics and Bioinformatics, 6(2), lqae056. https://doi.org/10.1093/nargab/lqae056</p>
-      </div>
-    </section><!-- End Frequently Asked Questions Section -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="container footer-bottom clearfix">
-      <div class="container">
-        <h3>Wallau Lab</h3>
-        <p>
-          Fundação Oswaldo Cruz, Instituto Aggeu Magalhães<br>
-          Universidade Federal de Pernambuco - Campus da, Av. Prof. Moraes Rego, s/n<br>
-          Recife, Brasil <br><br>
-          <strong>Site:</strong> https://wallaulab.wordpress.com<br>
-        </p>
-      </div>
-      <div class="copyright">
-        &copy;<strong><span>WallauLab</span></strong>. Todos os direitos reservados.
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a><br>
-        Edited by <a href="https://dezordi.github.io/">Filipe Dezordi</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <a href="https://viralflow.readthedocs.io/en/latest/" class="btn">
+      Go to ReadTheDocs
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </a>
+  </div>
 
 </body>
+
 </html>
